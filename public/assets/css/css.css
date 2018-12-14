@@ -1,0 +1,84 @@
+body {
+    background-color: #C58B34;
+    height: 100%;
+    font-family: 'Indie Flower', cursive;
+    
+  }
+
+  .wrap {
+    display:flex;
+    height: 100%;
+    width: 75%;
+    background-color: white;
+    margin: 0 auto;
+    border: 3px solid black;
+    padding: 10px;
+    min-width: 500px;
+    
+   
+  }
+
+  .container1 {
+
+    flex:1;
+    order:1;
+    text-align: center;
+    
+  }
+
+  .container2 {
+    flex:1;
+    order: 3;
+   text-align: center;
+  }
+
+  .container3 {
+    text-align: center;
+    flex:1;
+    order:2;
+    border: 2px solid black;
+    padding: 5px;
+    
+  }
+
+  #pic {
+    min-width: 0;
+    margin: 5px;
+
+  }
+
+  img {
+    width: 450px;
+    max-width: 100%; 
+    max-height: 450px; 
+  }
+
+  button {
+      background-color: brown;
+      color: oldlace;
+      max-height: 20px;
+      overflow: hidden;
+      width: 115px;
+  }
+
+  .burgercontainer {
+      height: 100px;
+      width: 150px;
+      margin: 0 auto;
+  }
+
+  .delBurger {
+    position: relative;
+    bottom: 60px;
+    
+  }
+
+  .eatBurger {
+      height: 90px;
+      width: 105px;
+  }
+
+  .usedWrapper {
+      position: relative;
+      bottom: 14px;
+  }
