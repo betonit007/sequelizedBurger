@@ -9,5 +9,10 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.BOOLEAN, default:false 
         }
     });
+    
+
+    
     return Burgers;
+    
+
 };
