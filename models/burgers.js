@@ -1,5 +1,3 @@
-
-
 module.exports = function(sequelize, Sequelize) {
     var Burgers = sequelize.define("Burgers", {
         burger_name: {
