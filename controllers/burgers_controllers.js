@@ -5,11 +5,10 @@ module.exports = function(app) {
 
 
     app.get("/", function(req, res) {
-        db.Burgers.findAll({}).then(function(data) {
+        db.Burgers.findAll({include: [ db.Customer ] }).then(function(data) {
             var allBurgers = {
                 burgers: data
             };
-            console.log(allBurgers);
             res.render("index", allBurgers);
         });
     });
@@ -23,14 +22,26 @@ module.exports = function(app) {
         });
     });
 
-    app.put("/api/burgers/:id", function(req, res) {
-        var condition = "id = " + req.params.id;
+    app.post("/api/cust", function(req, res) {
+        console.log("this is customer " + req.body.cust_name);
+        db.Customer.create(
+            {
+            cust_name: req.body.cust_name
+            }      
+        ).then(function(result) {
+        res.json(result);
+        });
+    });
 
-        console.log("condition", condition);
+    app.put("/api/burgers/:id", function(req, res) {
+       console.log("id = " + req.params.id);
+
+        console.log("custID: ", req.body.custId);
 
         db.Burgers.update(
             {
-                devoured: true
+                devoured: true,
+                CustomerId: req.body.custId
             },
             {
             where: {id: req.params.id}

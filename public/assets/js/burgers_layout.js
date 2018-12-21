@@ -1,27 +1,37 @@
 $(function() {
     $(".delBurger").on("click", function(event) {
+        var cust = $(this).attr("data-id");
+        var customer = $("#"+cust + "cust").val().trim();
+        console.log(customer);
+        if (customer.length === 0) {
+            alert("Please enter a valid name before devouring!");
+        }
+        else{
         var id = $(this).data("id");
-        console.log(id);
+      
         var newDevoured = $(this).data("devoured");
 
+        var newCust = { cust_name: customer };
 
-        var newDevouredState = {
-            devoured: newDevoured
-        };
-
-        $.ajax("/api/burgers/" + id, {
-          type: "PUT",
-          data: newDevouredState
-        }).then(
-            function() {
-                console.log("changed devoured to", newDevoured);
-                location.reload();
-            }
-        );
+        $.ajax("/api/cust", {
+            type: "POST",
+            data: newCust
+          }).then(
+              function(result) {
+                  var custIdSend = { custId: result.id};
+                  $.ajax("/api/burgers/" + id, {
+                    type: "PUT",
+                    data: custIdSend
+                  }).then(
+                      function() {
+                          location.reload();
+                      });
+              });
+     
+        }
     });
     $(".create-form").on("submit", function(event) {
         event.preventDefault();
-        console.log($("#burg").val().trim());
         var newBurger = {
             name: $("#burg").val().trim(),
             devoured: 0
@@ -32,7 +42,6 @@ $(function() {
             data: newBurger
         }).then(
             function() {
-                console.log("created new burger");
                 location.reload();
             }
         );

@@ -7,6 +7,14 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.BOOLEAN, default:false 
         }
     });
+
+    Burgers.associate = function(models) {
+        Burgers.belongsTo(models.Customer, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    };;
     
 
     

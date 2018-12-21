@@ -9,6 +9,9 @@
             <div class="burgercontainer">
             <img class="eatBurger" src="/assets/img/burg.png">
             <button data-id="{{this.id}}" class="delBurger" name="{{this.burger_name}}">{{this.id}}.{{this.burger_name}}</button>
+            <form class="custField" >
+                <input type="text" class="custName" id="{{this.id}}cust" name="name" placeholder="Enter Name to Devour">
+        </form>
             </div>
             {{/unless}}
             {{/each}}
@@ -19,7 +22,7 @@
 
     <div class="container2">
 
-        <h2>Eaten Burgers</h2>
+        <h2>Devoured Burgers</h2>
 
         
             {{#each burgers}}
@@ -27,6 +30,7 @@
             <div class="burgercontainer">
                 <p data-id="{{this.id}}" name="{{this.burger_name}}">{{this.id}}.{{this.burger_name}}</p>
                 <img class="usedWrapper" src="/assets/img/wrapper.png">
+                <p class="ateBy">Devoured by: {{this.Customer.cust_name}}</p>
             </div>
             {{/if}}
             {{/each}}
@@ -35,6 +39,7 @@
 
 
     <div class="container3">
+    
         <div id="pic">
             <img src="/assets/img/center.png">
          </div>

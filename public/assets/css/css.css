@@ -67,18 +67,29 @@ body {
       margin: 0 auto;
   }
 
-  .delBurger {
-    position: relative;
-    bottom: 60px;
-    
-  }
+
 
   .eatBurger {
       height: 90px;
       width: 105px;
   }
+.delBurger {
+  position: relative;
+  bottom: 60px;
+}
 
-  .usedWrapper {
-      position: relative;
-      bottom: 14px;
-  }
+.custName {
+  position: relative;
+  bottom: 40px;
+}
+
+.ateBy {
+  color: red;
+  position: relative;
+  bottom: 80px;
+  transform: rotate(20deg);
+  text-shadow: 1px 1px black;
+}
+
+
+  
